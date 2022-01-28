@@ -218,9 +218,23 @@ pre code {
 
 <!-- rnb-text-begin -->
 <p>*** January 27, 2022 Re-initiated git repository, with new data. This time, the repo is not a subdirectory, which means it should be visible in GitHub under the repo info</p>
+<div id="january-28-2022-fri" class="section level4">
+<h4>January 28, 2022, Fri</h4>
+<p>Started Geneious work on 5 practice strains sequence data. Went through Step 1 and 2 of protocol:</p>
+<ol style="list-style-type: decimal">
+<li>Import data sets into Geneious Prime</li>
+<li>Trim using BBDuk This includes the following parameters:</li>
+</ol>
+<ul>
+<li>trim adapters unchecked, trim low quality checked, trim both ends checked with min overlap 20, discard short reads checked, min length 20bp, low complexity unchecked, keep original order checked. max memory 4000mb, no custom options. This step took a few (1-4) minutes.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Error correct and normalize reads. In this step, we are reducing -depth of coverage- (DOC) to 40x coverage, meaning that each read is sequenced approximately 40 times. Any more than 30-90x DOC and we don’t improve results and only increase computation time.</li>
+</ol>
 <!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkphY2tzb24gSGFsbCdzIFByYWN0aWNlIE5vdGVib29rIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQphdXRob3I6ICJKYWNrc29uIEhhbGwiDQotLS0NCg0KKioqIEphbnVhcnkgMjcsIDIwMjINClJlLWluaXRpYXRlZCBnaXQgcmVwb3NpdG9yeSwgd2l0aCBuZXcgZGF0YS4gVGhpcyB0aW1lLCB0aGUgcmVwbyBpcyBub3QgYSBzdWJkaXJlY3RvcnksIHdoaWNoIG1lYW5zIGl0IHNob3VsZCBiZSB2aXNpYmxlIGluIEdpdEh1YiB1bmRlciB0aGUgcmVwbyBpbmZvDQo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSmFja3NvbiBIYWxsJ3MgUHJhY3RpY2UgTm90ZWJvb2siCm91dHB1dDogaHRtbF9ub3RlYm9vawphdXRob3I6ICJKYWNrc29uIEhhbGwiCi0tLQoKKioqIEphbnVhcnkgMjcsIDIwMjIKUmUtaW5pdGlhdGVkIGdpdCByZXBvc2l0b3J5LCB3aXRoIG5ldyBkYXRhLiBUaGlzIHRpbWUsIHRoZSByZXBvIGlzIG5vdCBhIHN1YmRpcmVjdG9yeSwgd2hpY2ggbWVhbnMgaXQgc2hvdWxkIGJlIHZpc2libGUgaW4gR2l0SHViIHVuZGVyIHRoZSByZXBvIGluZm8KCiMjIyMgSmFudWFyeSAyOCwgMjAyMiwgRnJpClN0YXJ0ZWQgR2VuZWlvdXMgd29yayBvbiA1IHByYWN0aWNlIHN0cmFpbnMgc2VxdWVuY2UgZGF0YS4gV2VudCB0aHJvdWdoIFN0ZXAgMSBhbmQgMiBvZiBwcm90b2NvbDoKCjEuIEltcG9ydCBkYXRhIHNldHMgaW50byBHZW5laW91cyBQcmltZQoyLiBUcmltICB1c2luZyBCQkR1ayBUaGlzIGluY2x1ZGVzIHRoZSBmb2xsb3dpbmcgcGFyYW1ldGVyczoKCiogdHJpbSBhZGFwdGVycyB1bmNoZWNrZWQsIHRyaW0gbG93IHF1YWxpdHkgY2hlY2tlZCwgdHJpbSBib3RoIGVuZHMgY2hlY2tlZCB3aXRoIG1pbiBvdmVybGFwIDIwLCBkaXNjYXJkIHNob3J0IHJlYWRzIGNoZWNrZWQsIG1pbiBsZW5ndGggMjBicCwgbG93IGNvbXBsZXhpdHkgdW5jaGVja2VkLCBrZWVwIG9yaWdpbmFsIG9yZGVyIGNoZWNrZWQuIG1heCBtZW1vcnkgNDAwMG1iLCBubyBjdXN0b20gb3B0aW9ucy4gVGhpcyBzdGVwIHRvb2sgYSBmZXcgKDEtNCkgbWludXRlcy4gCjMuICBFcnJvciBjb3JyZWN0IGFuZCBub3JtYWxpemUgcmVhZHMuIEluIHRoaXMgc3RlcCwgd2UgYXJlIHJlZHVjaW5nIC1kZXB0aCBvZiBjb3ZlcmFnZS0gKERPQykgdG8gNDB4IGNvdmVyYWdlLCBtZWFuaW5nIHRoYXQgZWFjaCByZWFkIGlzIHNlcXVlbmNlZCBhcHByb3hpbWF0ZWx5IDQwIHRpbWVzLiBBbnkgbW9yZSB0aGFuIDMwLTkweCBET0MgYW5kIHdlIGRvbid0IGltcHJvdmUgcmVzdWx0cyBhbmQgb25seSBpbmNyZWFzZSBjb21wdXRhdGlvbiB0aW1lLiA=</div>
 
 
 

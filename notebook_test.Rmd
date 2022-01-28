@@ -6,3 +6,12 @@ author: "Jackson Hall"
 
 *** January 27, 2022
 Re-initiated git repository, with new data. This time, the repo is not a subdirectory, which means it should be visible in GitHub under the repo info
+
+#### January 28, 2022, Fri
+Started Geneious work on 5 practice strains sequence data. Went through Step 1 and 2 of protocol:
+
+1. Import data sets into Geneious Prime
+2. Trim  using BBDuk This includes the following parameters:
+
+* trim adapters unchecked, trim low quality checked, trim both ends checked with min overlap 20, discard short reads checked, min length 20bp, low complexity unchecked, keep original order checked. max memory 4000mb, no custom options. This step took a few (1-4) minutes. 
+3.  Error correct and normalize reads. In this step, we are reducing -depth of coverage- (DOC) to 40x coverage, meaning that each read is sequenced approximately 40 times. Any more than 30-90x DOC and we don't improve results and only increase computation time. 
