@@ -4,6 +4,13 @@ output: html_notebook
 author: "Jackson Hall"
 ---
 
+
+### Installing packages
+```{r, echo=FALSE}
+install.packages("kableExtra")
+library(kableExtra)
+```
+
 *** January 27, 2022
 Re-initiated git repository, with new data. This time, the repo is not a subdirectory, which means it should be visible in GitHub under the repo info
 
@@ -64,8 +71,12 @@ Sequence data can be found from the google drive folder [here](https://drive.goo
 * Save consensus sequences checked
 
 
-
+Assembly statistics can be found below:
+```{r}
+threeThS2_assembly_stats <- read.csv("./3thS2_assembly_stats.csv", header=FALSE)
+```
 ### Results
+
 
 ### Summary of findings
 
