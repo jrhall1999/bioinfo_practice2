@@ -231,10 +231,70 @@ pre code {
 <ol start="3" style="list-style-type: decimal">
 <li>Error correct and normalize reads. In this step, we are reducing -depth of coverage- (DOC) to 40x coverage, meaning that each read is sequenced approximately 40 times. Any more than 30-90x DOC and we don’t improve results and only increase computation time.</li>
 </ol>
+<p>####January 30, 2022</p>
+</div>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+</div>
+<div id="collaborators" class="section level3">
+<h3>Collaborators</h3>
+</div>
+<div id="summary-of-findings" class="section level3">
+<h3>Summary of Findings</h3>
+</div>
+<div id="location-of-data-files" class="section level3">
+<h3>Location of data files</h3>
+<p>Data files are stored within this directory on the UW google drive storage at <code>~/data/raw</code> Github directory is <a href="git@github.com:Doty-Lab-UW/Proj-AppleBio.git">here</a></p>
+</div>
+<div id="software-used" class="section level3">
+<h3>Software used</h3>
+<p>Geneious Prime Performed on Kubuntu 21.0 x86_64 R version 4.0.4 RStudio version Sequence data can be found from the google drive folder <a href="https://drive.google.com/drive/u/2/folders/1OeuZlHx-H_svO9USMOl3frjyY_bf64JB">here</a>.</p>
+</div>
+<div id="methods" class="section level3">
+<h3>Methods</h3>
+<ol style="list-style-type: decimal">
+<li>Imported reads into Geneious.</li>
+<li>Set paired reads using <code>Sequence--&gt; Set paired reads</code> with the following default settings:</li>
+</ol>
+<ul>
+<li>Pairs of sequence list</li>
+<li>Relative orientation set to Forward/Reverse (inward pointing)</li>
+<li>Expected distance 200</li>
+<li>Read technology: Illumina paired end</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Reads were trimmed using BBDuk</strong>. Parameters were set to:</li>
+</ol>
+<ul>
+<li>Trim low quality: checked, trim both ends, min quality 30</li>
+<li>Trim adapters absed on paired read overhangs: checked, min 20</li>
+<li>Trim low quality: checked, both ends, min quality 30</li>
+<li>Discard short reads: checked, min 20</li>
+<li>allowed to use 8000mb ram</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><p><strong>Reads were normalized</strong> for DOC. Checked only the trimmed file, then used <code>Sequence &gt; Error Correct and Normalize Reads</code> with error correction unchecked, normalization checked w/ target coverage 40, min depth 6.</p></li>
+<li><p><strong>de Novo Assembly</strong>: <code>Align/Assemble &gt; De Novo Assemble...</code> using the following settings:</p></li>
+</ol>
+<ul>
+<li>Assembler: Geneious</li>
+<li>Sensitivity: Med low</li>
+<li>Save assembly report checked</li>
+<li>Save list of unused reads unchecked</li>
+<li>save in subfolder checked</li>
+<li>save contigs checked, max 1000</li>
+<li>Save consensus sequences checked</li>
+</ul>
+</div>
+<div id="results" class="section level3">
+<h3>Results</h3>
+</div>
+<div id="summary-of-findings-1" class="section level3">
+<h3>Summary of findings</h3>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiSmFja3NvbiBIYWxsJ3MgUHJhY3RpY2UgTm90ZWJvb2siCm91dHB1dDogaHRtbF9ub3RlYm9vawphdXRob3I6ICJKYWNrc29uIEhhbGwiCi0tLQoKKioqIEphbnVhcnkgMjcsIDIwMjIKUmUtaW5pdGlhdGVkIGdpdCByZXBvc2l0b3J5LCB3aXRoIG5ldyBkYXRhLiBUaGlzIHRpbWUsIHRoZSByZXBvIGlzIG5vdCBhIHN1YmRpcmVjdG9yeSwgd2hpY2ggbWVhbnMgaXQgc2hvdWxkIGJlIHZpc2libGUgaW4gR2l0SHViIHVuZGVyIHRoZSByZXBvIGluZm8KCiMjIyMgSmFudWFyeSAyOCwgMjAyMiwgRnJpClN0YXJ0ZWQgR2VuZWlvdXMgd29yayBvbiA1IHByYWN0aWNlIHN0cmFpbnMgc2VxdWVuY2UgZGF0YS4gV2VudCB0aHJvdWdoIFN0ZXAgMSBhbmQgMiBvZiBwcm90b2NvbDoKCjEuIEltcG9ydCBkYXRhIHNldHMgaW50byBHZW5laW91cyBQcmltZQoyLiBUcmltICB1c2luZyBCQkR1ayBUaGlzIGluY2x1ZGVzIHRoZSBmb2xsb3dpbmcgcGFyYW1ldGVyczoKCiogdHJpbSBhZGFwdGVycyB1bmNoZWNrZWQsIHRyaW0gbG93IHF1YWxpdHkgY2hlY2tlZCwgdHJpbSBib3RoIGVuZHMgY2hlY2tlZCB3aXRoIG1pbiBvdmVybGFwIDIwLCBkaXNjYXJkIHNob3J0IHJlYWRzIGNoZWNrZWQsIG1pbiBsZW5ndGggMjBicCwgbG93IGNvbXBsZXhpdHkgdW5jaGVja2VkLCBrZWVwIG9yaWdpbmFsIG9yZGVyIGNoZWNrZWQuIG1heCBtZW1vcnkgNDAwMG1iLCBubyBjdXN0b20gb3B0aW9ucy4gVGhpcyBzdGVwIHRvb2sgYSBmZXcgKDEtNCkgbWludXRlcy4gCjMuICBFcnJvciBjb3JyZWN0IGFuZCBub3JtYWxpemUgcmVhZHMuIEluIHRoaXMgc3RlcCwgd2UgYXJlIHJlZHVjaW5nIC1kZXB0aCBvZiBjb3ZlcmFnZS0gKERPQykgdG8gNDB4IGNvdmVyYWdlLCBtZWFuaW5nIHRoYXQgZWFjaCByZWFkIGlzIHNlcXVlbmNlZCBhcHByb3hpbWF0ZWx5IDQwIHRpbWVzLiBBbnkgbW9yZSB0aGFuIDMwLTkweCBET0MgYW5kIHdlIGRvbid0IGltcHJvdmUgcmVzdWx0cyBhbmQgb25seSBpbmNyZWFzZSBjb21wdXRhdGlvbiB0aW1lLiA=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiSmFja3NvbiBIYWxsJ3MgUHJhY3RpY2UgTm90ZWJvb2siCm91dHB1dDogaHRtbF9ub3RlYm9vawphdXRob3I6ICJKYWNrc29uIEhhbGwiCi0tLQoKKioqIEphbnVhcnkgMjcsIDIwMjIKUmUtaW5pdGlhdGVkIGdpdCByZXBvc2l0b3J5LCB3aXRoIG5ldyBkYXRhLiBUaGlzIHRpbWUsIHRoZSByZXBvIGlzIG5vdCBhIHN1YmRpcmVjdG9yeSwgd2hpY2ggbWVhbnMgaXQgc2hvdWxkIGJlIHZpc2libGUgaW4gR2l0SHViIHVuZGVyIHRoZSByZXBvIGluZm8KCiMjIyMgSmFudWFyeSAyOCwgMjAyMiwgRnJpClN0YXJ0ZWQgR2VuZWlvdXMgd29yayBvbiA1IHByYWN0aWNlIHN0cmFpbnMgc2VxdWVuY2UgZGF0YS4gV2VudCB0aHJvdWdoIFN0ZXAgMSBhbmQgMiBvZiBwcm90b2NvbDoKCjEuIEltcG9ydCBkYXRhIHNldHMgaW50byBHZW5laW91cyBQcmltZQoyLiBUcmltICB1c2luZyBCQkR1ayBUaGlzIGluY2x1ZGVzIHRoZSBmb2xsb3dpbmcgcGFyYW1ldGVyczoKCiogdHJpbSBhZGFwdGVycyB1bmNoZWNrZWQsIHRyaW0gbG93IHF1YWxpdHkgY2hlY2tlZCwgdHJpbSBib3RoIGVuZHMgY2hlY2tlZCB3aXRoIG1pbiBvdmVybGFwIDIwLCBkaXNjYXJkIHNob3J0IHJlYWRzIGNoZWNrZWQsIG1pbiBsZW5ndGggMjBicCwgbG93IGNvbXBsZXhpdHkgdW5jaGVja2VkLCBrZWVwIG9yaWdpbmFsIG9yZGVyIGNoZWNrZWQuIG1heCBtZW1vcnkgNDAwMG1iLCBubyBjdXN0b20gb3B0aW9ucy4gVGhpcyBzdGVwIHRvb2sgYSBmZXcgKDEtNCkgbWludXRlcy4gCjMuICBFcnJvciBjb3JyZWN0IGFuZCBub3JtYWxpemUgcmVhZHMuIEluIHRoaXMgc3RlcCwgd2UgYXJlIHJlZHVjaW5nIC1kZXB0aCBvZiBjb3ZlcmFnZS0gKERPQykgdG8gNDB4IGNvdmVyYWdlLCBtZWFuaW5nIHRoYXQgZWFjaCByZWFkIGlzIHNlcXVlbmNlZCBhcHByb3hpbWF0ZWx5IDQwIHRpbWVzLiBBbnkgbW9yZSB0aGFuIDMwLTkweCBET0MgYW5kIHdlIGRvbid0IGltcHJvdmUgcmVzdWx0cyBhbmQgb25seSBpbmNyZWFzZSBjb21wdXRhdGlvbiB0aW1lLiAKCgojIyMjSmFudWFyeSAzMCwgMjAyMgoKIyMjIEludHJvZHVjdGlvbgojIyMgQ29sbGFib3JhdG9ycwojIyMgU3VtbWFyeSBvZiBGaW5kaW5ncwojIyMgTG9jYXRpb24gb2YgZGF0YSBmaWxlcwpEYXRhIGZpbGVzIGFyZSBzdG9yZWQgd2l0aGluIHRoaXMgZGlyZWN0b3J5IG9uIHRoZSBVVyBnb29nbGUgZHJpdmUgc3RvcmFnZSBhdCBgfi9kYXRhL3Jhd2AKR2l0aHViIGRpcmVjdG9yeSBpcyBbaGVyZV0oZ2l0QGdpdGh1Yi5jb206RG90eS1MYWItVVcvUHJvai1BcHBsZUJpby5naXQpCgoKIyMjIFNvZnR3YXJlIHVzZWQKR2VuZWlvdXMgUHJpbWUgClBlcmZvcm1lZCBvbiBLdWJ1bnR1IDIxLjAgeDg2XzY0ClIgdmVyc2lvbiA0LjAuNApSU3R1ZGlvIHZlcnNpb24KU2VxdWVuY2UgZGF0YSBjYW4gYmUgZm91bmQgZnJvbSB0aGUgZ29vZ2xlIGRyaXZlIGZvbGRlciBbaGVyZV0oaHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL3UvMi9mb2xkZXJzLzFPZXVabEh4LUhfc3ZPOVVTTU9sM2ZyanlZX2JmNjRKQikuIAoKIyMjIE1ldGhvZHMKMS4gSW1wb3J0ZWQgcmVhZHMgaW50byBHZW5laW91cy4gCjIuIFNldCBwYWlyZWQgcmVhZHMgdXNpbmcgYFNlcXVlbmNlLS0+IFNldCBwYWlyZWQgcmVhZHNgIHdpdGggdGhlIGZvbGxvd2luZyBkZWZhdWx0IHNldHRpbmdzOgoKKiBQYWlycyBvZiBzZXF1ZW5jZSBsaXN0CiogUmVsYXRpdmUgb3JpZW50YXRpb24gc2V0IHRvIEZvcndhcmQvUmV2ZXJzZSAoaW53YXJkIHBvaW50aW5nKQoqIEV4cGVjdGVkIGRpc3RhbmNlIDIwMAoqIFJlYWQgdGVjaG5vbG9neTogSWxsdW1pbmEgcGFpcmVkIGVuZAoKMy4gKipSZWFkcyB3ZXJlIHRyaW1tZWQgdXNpbmcgQkJEdWsqKi4gUGFyYW1ldGVycyB3ZXJlIHNldCB0bzogCgoqIFRyaW0gbG93IHF1YWxpdHk6IGNoZWNrZWQsIHRyaW0gYm90aCBlbmRzLCBtaW4gcXVhbGl0eSAzMAoqIFRyaW0gYWRhcHRlcnMgYWJzZWQgb24gcGFpcmVkIHJlYWQgb3ZlcmhhbmdzOiBjaGVja2VkLCBtaW4gMjAgCiogVHJpbSBsb3cgcXVhbGl0eTogY2hlY2tlZCwgYm90aCBlbmRzLCBtaW4gcXVhbGl0eSAzMAoqIERpc2NhcmQgc2hvcnQgcmVhZHM6IGNoZWNrZWQsIG1pbiAyMAoqIGFsbG93ZWQgdG8gdXNlIDgwMDBtYiByYW0KCjQuICoqUmVhZHMgd2VyZSBub3JtYWxpemVkKiogZm9yIERPQy4gQ2hlY2tlZCBvbmx5IHRoZSB0cmltbWVkIGZpbGUsIHRoZW4gdXNlZCBgU2VxdWVuY2UgPiBFcnJvciBDb3JyZWN0IGFuZCBOb3JtYWxpemUgUmVhZHNgIHdpdGggZXJyb3IgY29ycmVjdGlvbiB1bmNoZWNrZWQsIG5vcm1hbGl6YXRpb24gY2hlY2tlZCB3LyB0YXJnZXQgY292ZXJhZ2UgNDAsIG1pbiBkZXB0aCA2LiAKCjUuICoqZGUgTm92byBBc3NlbWJseSoqOiBgQWxpZ24vQXNzZW1ibGUgPiBEZSBOb3ZvIEFzc2VtYmxlLi4uYCB1c2luZyB0aGUgZm9sbG93aW5nIHNldHRpbmdzOgoKKiBBc3NlbWJsZXI6IEdlbmVpb3VzCiogU2Vuc2l0aXZpdHk6IE1lZCBsb3cKKiBTYXZlIGFzc2VtYmx5IHJlcG9ydCBjaGVja2VkCiogU2F2ZSBsaXN0IG9mIHVudXNlZCByZWFkcyB1bmNoZWNrZWQKKiBzYXZlIGluIHN1YmZvbGRlciBjaGVja2VkCiogc2F2ZSBjb250aWdzIGNoZWNrZWQsIG1heCAxMDAwCiogU2F2ZSBjb25zZW5zdXMgc2VxdWVuY2VzIGNoZWNrZWQKCgoKIyMjIFJlc3VsdHMKCiMjIyBTdW1tYXJ5IG9mIGZpbmRpbmdzCgo=</div>
 
 
 
