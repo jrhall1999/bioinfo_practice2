@@ -10,7 +10,7 @@ author: "Jackson Hall"
 install.packages("kableExtra")
 library(kableExtra)
 ```
-
+This required installation of two new linux packages- I had to run `sudo apat-get install libxml2-dev libfontconfig1-dev` to resolve, but now I can successfully install and load packages. 
 *** January 27, 2022
 Re-initiated git repository, with new data. This time, the repo is not a subdirectory, which means it should be visible in GitHub under the repo info
 
