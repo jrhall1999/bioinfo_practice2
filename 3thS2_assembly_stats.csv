@@ -1,4 +1,4 @@
-statistics,unused_reads,all_contigs,contigs_over_100,contigs_over_1000
+,unused_reads,all_contigs,contigs_over_100,contigs_over_1000
 number_of,26741,50461,48642,5684
 min_length,20,27,100,1000
 median_length,,403,415,1312

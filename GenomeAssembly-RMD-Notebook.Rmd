@@ -8,7 +8,10 @@ author: "Jackson Hall"
 ### Installing packages
 ```{r, echo=FALSE}
 install.packages("kableExtra")
+install.packages("tidyverse")
 library(kableExtra)
+library(knitr)
+library(tidyverse)
 ```
 This required installation of two new linux packages- I had to run `sudo apat-get install libxml2-dev libfontconfig1-dev` to resolve, but now I can successfully install and load packages. 
 *** January 27, 2022
@@ -72,8 +75,12 @@ Sequence data can be found from the google drive folder [here](https://drive.goo
 
 
 Assembly statistics can be found below:
-```{r}
-threeThS2_assembly_stats <- read.csv("./3thS2_assembly_stats.csv", header=FALSE)
+```{r, echo=FALSE}
+
+threeThS2_assembly_stats <- read.csv("./3thS2_assembly_stats.csv", header=TRUE)
+                                     
+threeThS2_table <- kbl(threeThS2_assembly_stats, caption = "Geneious Prime Assembly Statistics (3ThS2)") 
+threeThS2_table
 ```
 ### Results
 
