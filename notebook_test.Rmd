@@ -1,8 +1,0 @@
----
-title: "Jackson Hall's Practice Notebook"
-output: html_notebook
-author: "Jackson Hall"
----
-
-*** January 27, 2022
-Re-initiated git repository, with new data. This time, the repo is not a subdirectory, which means it should be visible in GitHub under the repo info
