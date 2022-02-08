@@ -82,6 +82,9 @@ threeThS2_assembly_stats <- read.csv("./3thS2_assembly_stats.csv", header=TRUE)
 threeThS2_table <- kbl(threeThS2_assembly_stats, caption = "Geneious Prime Assembly Statistics (3ThS2)") 
 threeThS2_table
 ```
+#### Uploading to 
+
+
 ### Results
 
 
