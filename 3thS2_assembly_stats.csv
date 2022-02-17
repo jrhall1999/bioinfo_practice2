@@ -1,9 +1,0 @@
-,unused_reads,all_contigs,contigs_over_100,contigs_over_1000
-number_of,26741,50461,48642,5684
-min_length,20,27,100,1000
-median_length,,403,415,1312
-mean_length,116,641,662,2466
-max_length,250,73892,73892,73892
-n50_length,,849,854,3255
-contigs_over_n50,,8035,7944,628
-length_sum,3119283,32355873,32201089,13019106
