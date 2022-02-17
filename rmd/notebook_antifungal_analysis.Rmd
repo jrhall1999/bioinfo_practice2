@@ -76,7 +76,6 @@ Sequence data can be found from the google drive folder [here](https://drive.goo
 
 Assembly statistics can be found below:
 ```{r, echo=FALSE}
-
 threeThS2_assembly_stats <- read.csv("./3thS2_assembly_stats.csv", header=TRUE)
                                      
 threeThS2_table <- kbl(threeThS2_assembly_stats, caption = "Geneious Prime Assembly Statistics (3ThS2)") 
@@ -89,4 +88,3 @@ threeThS2_table
 
 
 ### Summary of findings
-

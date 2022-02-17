@@ -1,0 +1,122 @@
+---
+title: "Jackson Hall's Practice Notebook"
+output: html_notebook
+author: "Jackson Hall"
+---
+
+
+### Installing packages and other intializing
+```{r, echo=FALSE}
+setwd("/home/jackson/googledrive/Proj-antifungal-genomics") # This is only set once; all other file paths will be relative
+install.packages("kableExtra")
+install.packages("tidyverse")
+library(kableExtra)
+library(knitr)
+library(tidyverse)
+```
+This required installation of two new linux packages- I had to run `sudo apat-get install libxml2-dev libfontconfig1-dev` to resolve, but now I can successfully install and load packages. 
+*** January 27, 2022
+Re-initiated git repository, with new data. This time, the repo is not a subdirectory, which means it should be visible in GitHub under the repo info
+
+#### January 28, 2022, Fri
+Started Geneious work on 5 practice strains sequence data. Went through Step 1 and 2 of protocol:
+
+1. Import data sets into Geneious Prime
+2. Trim  using BBDuk This includes the following parameters:
+
+* trim adapters unchecked, trim low quality checked, trim both ends checked with min overlap 20, discard short reads checked, min length 20bp, low complexity unchecked, keep original order checked. max memory 4000mb, no custom options. This step took a few (1-4) minutes. 
+3.  Error correct and normalize reads. In this step, we are reducing -depth of coverage- (DOC) to 40x coverage, meaning that each read is sequenced approximately 40 times. Any more than 30-90x DOC and we don't improve results and only increase computation time. 
+
+
+####January 30, 2022
+
+### Introduction
+### Collaborators
+### Summary of Findings
+### Location of data files
+Data files are stored within this directory on the UW google drive storage at `~/data/raw`
+Github directory is [here](git@github.com:Doty-Lab-UW/Proj-AppleBio.git)
+
+
+### Software used
+Geneious Prime 
+Performed on Kubuntu 21.0 x86_64
+R version 4.0.4
+RStudio version
+Sequence data can be found from the google drive folder [here](https://drive.google.com/drive/u/2/folders/1OeuZlHx-H_svO9USMOl3frjyY_bf64JB). 
+
+### Methods
+1. Imported reads into Geneious. 
+2. Set paired reads using `Sequence--> Set paired reads` with the following default settings:
+
+* Pairs of sequence list
+* Relative orientation set to Forward/Reverse (inward pointing)
+* Expected distance 200
+* Read technology: Illumina paired end
+
+3. **Reads were trimmed using BBDuk**. Parameters were set to: 
+
+* Trim low quality: checked, trim both ends, min quality 30
+* Trim adapters absed on paired read overhangs: checked, min 20 
+* Trim low quality: checked, both ends, min quality 30
+* Discard short reads: checked, min 20
+* allowed to use 8000mb ram
+
+4. **Reads were normalized** for DOC. Checked only the trimmed file, then used `Sequence > Error Correct and Normalize Reads` with error correction unchecked, normalization checked w/ target coverage 40, min depth 6. 
+
+5. **de Novo Assembly**: `Align/Assemble > De Novo Assemble...` using the following settings:
+
+* Assembler: Geneious
+* Sensitivity: Med low
+* Save assembly report checked
+* Save list of unused reads unchecked
+* save in subfolder checked
+* save contigs checked, max 1000
+* Save consensus sequences checked
+
+
+Assembly statistics can be found below:
+```{r, echo=FALSE}
+
+threeThS2_assembly_stats <- read.csv("./data/3thS2_assembly_stats.csv", header=TRUE)
+                                     
+threeThS2_table <- kbl(threeThS2_assembly_stats, caption = "Geneious Prime Assembly Statistics (3ThS2)") 
+threeThS2_table
+```
+#### Checking completeness and quality using CheckM by KBase
+I used KBase to check the completeness and contamination of the assembly. CheckM yielded a completeness of 99.92 and a contamination of 0.3. 
+
+
+[KBase](kbase.us)
+Date accessed: February 16, 2021
+CheckM Version 
+Submitted files ` ./data/processed/ths2_spades.fasta`
+
+#### Annotation with RAST
+[Rapid Annotation using subsystem technology (RAST)](rast.npdr.org)
+Upload date , Version
+Date stored indefinitely on user page
+
+Consensus sequence files (filtered for contigs over 1000bp) were submitted for annotation with the following options selected: 
+
+* Rast annotation scheme: RASTtk
+* Customize RASTtk pipeline unchecked
+* Automatically fix errors: checked
+* Fix frame shifts: check
+* Build metabolic curve model: checked
+* Turn on debug: checked
+* Set verbose level: 0
+* Disable replication: unchecked
+
+##### RAST Results:
+6309 CDS, 379 Subsystems, 67 RNAs
+
+The table output was stored in `./data/rasttableoutput.tsv`
+rasttableoutput <- read.csv2("./data/rasttableoutput.tsv")
+
+
+
+### Results
+
+
+### Summary of findings
